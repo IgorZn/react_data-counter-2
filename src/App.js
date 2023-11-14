@@ -22,6 +22,21 @@ function App() {
         setStep(c => Number(e.target.value))
     }
 
+    const resetBtn = (count) => {
+        if(count === 0)
+            return ''
+        return (
+            <>
+                <button className={"btn btn-info"}
+                        onClick={() => {
+                            setStep(1)
+                            setCounter(0)
+                        }}
+                >Reset</button>
+            </>
+        )
+    }
+
     const message = (counter) => {
         let currentDate = new Date()
         if (counter > 0) {
@@ -63,6 +78,12 @@ function App() {
             <div className="row text-center">
                 <div className="col">
                     {message(counter)}
+                </div>
+            </div>
+
+            <div className="row text-center">
+                <div className="col mt-1">
+                    {resetBtn(counter)}
                 </div>
             </div>
 
